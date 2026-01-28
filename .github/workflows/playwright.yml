@@ -31,8 +31,8 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Playwright SMOKE tests
-      run: npx playwright test -g @smoke
+    - name: Run Playwright tests
+      run: npx playwright test
 
     - name: Generate Allure Report
       if: always()
