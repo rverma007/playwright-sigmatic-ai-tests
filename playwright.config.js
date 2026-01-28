@@ -9,7 +9,7 @@ module.exports = defineConfig({
   workers: 1, // ✅ sequential execution
 
   use: {
-    headless: false,
+    headless: true,
     viewport: { width: 1400, height: 800 },
 
     actionTimeout: 30 * 1000,
