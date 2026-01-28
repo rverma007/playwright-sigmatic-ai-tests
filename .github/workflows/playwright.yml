@@ -6,11 +6,15 @@ on:
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:   # 👈 allows manual run
+  schedule:
+  - cron: '0 3 * * *'
 
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    
 
     steps:
     - name: Checkout repo
