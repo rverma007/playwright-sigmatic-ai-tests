@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","27999","Admin can add user and see it in Users List","","2026-01-27","passed","2026-01-27","","add.spec.js","",""
+"","42079","Add user test","","2026-01-27","failed","2026-01-27","","sigmatic_adduser.spec.js","",""
+"","14542","Sigmatic dashboard login","","2026-01-21","passed","2026-01-21","","sigmatic.spec.js","",""

@@ -1,0 +1,403 @@
+### New console messages
+- [LOG] Blog documents response: {status: success, data: Object} @ https://staging.sigmatic.ai/_next/s...
+- [LOG] Blog documents response: {status: success, data: Object} @ https://staging.sigmatic.ai/_next/s...
+- [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more ...
+- [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more ...
+- [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more ...
+
+### Page state
+- Page URL: https://staging.sigmatic.ai/dashboard/
+- Page Title: Sigmatic
+- Page Snapshot:
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e50]:
+      - banner [ref=e51]:
+        - generic [ref=e53]:
+          - button [ref=e55] [cursor=pointer]:
+            - img [ref=e56]
+          - generic [ref=e58]:
+            - generic [ref=e59] [cursor=pointer]:
+              - text: Onboard
+              - img [ref=e61]
+            - img [ref=e65] [cursor=pointer]
+      - main [ref=e68]:
+        - iframe [ref=e72]:
+          - generic [active] [ref=f1e1]:
+            - generic [ref=f1e2]:
+              - generic [ref=f1e3]:
+                - banner [ref=f1e4]:
+                  - generic [ref=f1e6]:
+                    - generic [ref=f1e7]:
+                      - 'heading "KPI Dashboard: Big Sky - stage" [ref=f1e8]'
+                      - img "info icon" [ref=f1e9]
+                    - button "Download as PDF" [ref=f1e11] [cursor=pointer]:
+                      - img "download icon" [ref=f1e13]
+                  - tablist [ref=f1e19]:
+                    - generic [ref=f1e20]:
+                      - button "Case Volume" [ref=f1e21]:
+                        - tab "Case Volume" [selected] [ref=f1e22] [cursor=pointer]:
+                          - generic [ref=f1e23]:
+                            - textbox "Case Volume" [disabled]
+                      - button "OR Efficiency Matrix" [ref=f1e24]:
+                        - tab "OR Efficiency Matrix" [ref=f1e25] [cursor=pointer]:
+                          - generic [ref=f1e26]:
+                            - textbox "OR Efficiency Matrix" [disabled]
+                      - button "Block Utilization" [ref=f1e27]:
+                        - tab "Block Utilization" [ref=f1e28] [cursor=pointer]:
+                          - generic [ref=f1e29]:
+                            - textbox "Block Utilization" [disabled]
+                      - button "Financial" [ref=f1e30]:
+                        - tab "Financial" [ref=f1e31] [cursor=pointer]:
+                          - generic [ref=f1e32]:
+                            - textbox "Financial" [disabled]
+                      - button "Financial DW Report" [ref=f1e33]:
+                        - tab "Financial DW Report" [ref=f1e34] [cursor=pointer]:
+                          - generic [ref=f1e35]:
+                            - textbox "Financial DW Report" [disabled]
+                      - button "Case Volume DW Report" [ref=f1e36]:
+                        - tab "Case Volume DW Report" [ref=f1e37] [cursor=pointer]:
+                          - generic [ref=f1e38]:
+                            - textbox "Case Volume DW Report" [disabled]
+                      - button "OR Efficiency Matrix DW Report" [ref=f1e39]:
+                        - tab "OR Efficiency Matrix DW Report" [ref=f1e40] [cursor=pointer]:
+                          - generic [ref=f1e41]:
+                            - textbox "OR Efficiency Matrix DW Report" [disabled]
+                      - button "Block Utilization DW Report-0" [ref=f1e42]:
+                        - tab "Block Utilization DW Report-0" [ref=f1e43] [cursor=pointer]:
+                          - generic [ref=f1e44]:
+                            - textbox "Block Utilization DW Report-0" [disabled]
+                      - button "Case Volume CDM-0" [ref=f1e45]:
+                        - tab "Case Volume CDM-0" [ref=f1e46] [cursor=pointer]:
+                          - generic [ref=f1e47]:
+                            - textbox "Case Volume CDM-0" [disabled]
+                      - button "Case Volume CDM" [ref=f1e48]:
+                        - tab "Case Volume CDM" [ref=f1e49] [cursor=pointer]:
+                          - generic [ref=f1e50]:
+                            - textbox "Case Volume CDM" [disabled]
+                      - button "Block Utilization CDM" [ref=f1e51]:
+                        - tab "Block Utilization CDM" [ref=f1e52] [cursor=pointer]:
+                          - generic [ref=f1e53]:
+                            - textbox "Block Utilization CDM" [disabled]
+                      - button "Block Utilization DW Report" [ref=f1e54]:
+                        - tab "Block Utilization DW Report" [ref=f1e55] [cursor=pointer]:
+                          - generic [ref=f1e56]:
+                            - textbox "Block Utilization DW Report" [disabled]
+                      - button "OR Efficiency Matrix CDM" [ref=f1e57]:
+                        - tab "OR Efficiency Matrix CDM" [ref=f1e58] [cursor=pointer]:
+                          - generic [ref=f1e59]:
+                            - textbox "OR Efficiency Matrix CDM" [disabled]
+                      - button "Financial CDM" [ref=f1e60]:
+                        - tab "Financial CDM" [ref=f1e61] [cursor=pointer]:
+                          - generic [ref=f1e62]:
+                            - textbox "Financial CDM" [disabled]
+                      - status [ref=f1e63]
+                      - button "scroll tabs right" [ref=f1e64] [cursor=pointer]:
+                        - img "chevronright icon" [ref=f1e65]
+                - generic [ref=f1e70]:
+                  - listitem [ref=f1e73] [cursor=pointer]:
+                    - button "Date" [ref=f1e74]:
+                      - img "calendar icon" [ref=f1e75]
+                      - generic [ref=f1e78]: "Date:"
+                      - generic [ref=f1e79]: Previous month
+                      - button "Clear" [ref=f1e80]:
+                        - img "close icon" [ref=f1e81]
+                  - status [ref=f1e83]
+                - main [ref=f1e84]:
+                  - generic [ref=f1e87]:
+                    - generic [ref=f1e91]:
+                      - generic [ref=f1e93]:
+                        - generic [ref=f1e95]: Total Cases
+                        - button "ellipsis icon" [ref=f1e100] [cursor=pointer]:
+                          - img "ellipsis icon" [ref=f1e102]
+                      - generic [ref=f1e105]:
+                        - heading "362" [level=1] [ref=f1e108] [cursor=pointer]
+                        - heading "Dec 1, 2025" [level=3] [ref=f1e109]:
+                          - generic [ref=f1e110]: Dec 1, 2025
+                        - generic [ref=f1e112]:
+                          - generic [ref=f1e113]:
+                            - img "arrow_up icon" [ref=f1e114]
+                            - generic [ref=f1e116]: 3.13%
+                          - 'heading "vs. Cases PY: 351" [level=5] [ref=f1e117]'
+                    - generic [ref=f1e123]:
+                      - generic [ref=f1e124]:
+                        - generic [ref=f1e126]: Cases last 12 months vs PY
+                        - button "ellipsis icon" [ref=f1e130] [cursor=pointer]:
+                          - img "ellipsis icon" [ref=f1e132]
+                      - generic [ref=f1e134]:
+                        - generic "Legend" [ref=f1e136]:
+                          - generic [ref=f1e138]:
+                            - button "Hide series" [ref=f1e139] [cursor=pointer]
+                            - generic [ref=f1e143] [cursor=pointer]: Cases CY
+                          - generic [ref=f1e145]:
+                            - button "Hide series" [ref=f1e146] [cursor=pointer]
+                            - generic [ref=f1e150] [cursor=pointer]: Cases PY
+                        - img [ref=f1e157]:
+                          - generic [ref=f1e159]:
+                            - generic [ref=f1e160]: Month
+                            - generic [ref=f1e161]: "0"
+                            - generic [ref=f1e162]: "100"
+                            - generic [ref=f1e163]: "200"
+                            - generic [ref=f1e164]: "300"
+                            - generic [ref=f1e165]: "400"
+                            - generic [ref=f1e166]: Mar 2025
+                            - generic [ref=f1e167]: May 2025
+                            - generic [ref=f1e168]: Jul 2025
+                            - generic [ref=f1e169]: Sep 2025
+                            - generic [ref=f1e170]: Nov 2025
+                            - generic [ref=f1e171]: Jan 2025
+                            - generic [ref=f1e200]: "298"
+                            - generic [ref=f1e201]: "290"
+                            - generic [ref=f1e202]: "310"
+                            - generic [ref=f1e203]: "293"
+                            - generic [ref=f1e204]: "287"
+                            - generic [ref=f1e205]: "313"
+                            - generic [ref=f1e206]: "276"
+                            - generic [ref=f1e207]: "375"
+                            - generic [ref=f1e208]: "326"
+                            - generic [ref=f1e209]: "271"
+                            - generic [ref=f1e210]: "297"
+                            - generic [ref=f1e211]: "351"
+                    - generic [ref=f1e217]:
+                      - generic [ref=f1e218]:
+                        - generic [ref=f1e220]: Cases by Financial Class
+                        - button "ellipsis icon" [ref=f1e224] [cursor=pointer]:
+                          - img "ellipsis icon" [ref=f1e226]
+                      - img [ref=f1e233]:
+                        - generic [ref=f1e234]:
+                          - generic "65.7%" [ref=f1e235] [cursor=pointer]
+                          - img [ref=f1e236]:
+                            - generic [ref=f1e237]: 65.7%
+                          - generic "18.2%" [ref=f1e238] [cursor=pointer]
+                          - img [ref=f1e239]:
+                            - generic [ref=f1e240]: 18.2%
+                          - generic "8.6%" [ref=f1e241] [cursor=pointer]
+                          - img [ref=f1e242]:
+                            - generic [ref=f1e243]: 8.6%
+                          - generic "3.9%" [ref=f1e244] [cursor=pointer]
+                          - img [ref=f1e245]:
+                            - generic [ref=f1e246]: 3.9%
+                          - generic "3.3%" [ref=f1e247] [cursor=pointer]
+                          - img [ref=f1e248]:
+                            - generic [ref=f1e249]: 3.3%
+                          - generic "0.3%" [ref=f1e250] [cursor=pointer]
+                          - img [ref=f1e251]:
+                            - generic [ref=f1e252]: 0.3%
+                          - generic [ref=f1e253]:
+                            - img [ref=f1e255]:
+                              - generic [ref=f1e256]: Commercial
+                            - img [ref=f1e258]:
+                              - generic [ref=f1e259]: Medicare
+                            - img [ref=f1e261]:
+                              - generic [ref=f1e262]: Medicaid
+                            - img [ref=f1e264]:
+                              - generic [ref=f1e265]: Veterans
+                            - img [ref=f1e267]:
+                              - generic [ref=f1e268]: Worker's Comp
+                            - img [ref=f1e270]:
+                              - generic [ref=f1e271]: Self Pay
+                    - generic [ref=f1e277]:
+                      - generic [ref=f1e278]:
+                        - generic [ref=f1e280]: Cases by Surgeon Specialty
+                        - button "ellipsis icon" [ref=f1e284] [cursor=pointer]:
+                          - img "ellipsis icon" [ref=f1e286]
+                      - generic [ref=f1e288]:
+                        - generic "Legend" [ref=f1e290]:
+                          - generic [ref=f1e292]:
+                            - button "Hide series" [ref=f1e293] [cursor=pointer]
+                            - generic [ref=f1e297] [cursor=pointer]: Cases CY
+                          - generic [ref=f1e299]:
+                            - button "Hide series" [ref=f1e300] [cursor=pointer]
+                            - generic [ref=f1e304] [cursor=pointer]: Cases PY
+                        - img [ref=f1e311]:
+                          - generic [ref=f1e313]:
+                            - generic [ref=f1e314]: Surgeon Specialty
+                            - generic [ref=f1e315]: "0"
+                            - generic [ref=f1e316]: "50"
+                            - generic [ref=f1e317]: "100"
+                            - generic [ref=f1e318]: "150"
+                            - generic [ref=f1e319]: "200"
+                            - generic [ref=f1e320]: "250"
+                            - generic [ref=f1e321]: ORT
+                            - generic [ref=f1e322]: ENT
+                            - generic [ref=f1e323]: URO
+                            - generic [ref=f1e324]: OPH
+                            - generic [ref=f1e325]: GYN
+                            - generic [ref=f1e326]: PLS
+                            - generic [ref=f1e339]: "206"
+                            - generic [ref=f1e340]: "18"
+                            - generic [ref=f1e341]: "7"
+                            - generic [ref=f1e342]: "116"
+                            - generic [ref=f1e343]: "12"
+                            - generic [ref=f1e344]: "6"
+                    - generic [ref=f1e350]:
+                      - generic [ref=f1e351]:
+                        - generic [ref=f1e353]: Cases by Case Type
+                        - generic [ref=f1e356]:
+                          - listitem [ref=f1e359]:
+                            - generic "Top" [ref=f1e360]:
+                              - generic [ref=f1e361]: "Top :"
+                              - textbox "Top" [ref=f1e362]:
+                                - /placeholder: "Top "
+                                - text: "10"
+                              - img "empty icon" [ref=f1e363]
+                          - button "ellipsis icon" [ref=f1e364] [cursor=pointer]:
+                            - img "ellipsis icon" [ref=f1e366]
+                      - generic [ref=f1e368]:
+                        - generic "Legend" [ref=f1e370]:
+                          - generic [ref=f1e372]:
+                            - button "Hide series" [ref=f1e373] [cursor=pointer]
+                            - generic [ref=f1e377] [cursor=pointer]: Cases CY
+                          - generic [ref=f1e379]:
+                            - button "Hide series" [ref=f1e380] [cursor=pointer]
+                            - generic [ref=f1e384] [cursor=pointer]: Cases PY
+                        - img [ref=f1e391]:
+                          - generic [ref=f1e393]:
+                            - generic [ref=f1e394]: "10"
+                            - generic [ref=f1e395]: "30"
+                            - generic [ref=f1e396]: Rotator Cuff Repair
+                            - generic [ref=f1e397]: Ear Tube Placement
+                            - generic [ref=f1e398]: Septoplasty
+                            - generic [ref=f1e399]: Shoulder Arthroscopy
+                            - generic [ref=f1e400]: ACL Reconstruction
+                            - generic [ref=f1e401]: Palmar Fascia Surgery
+                            - generic [ref=f1e402]: Tonsillectomy
+                            - generic [ref=f1e403]: Adenoidectomy
+                            - generic [ref=f1e404]: Joint Injection
+                            - generic [ref=f1e405]: Tendon Release
+                            - generic [ref=f1e426]: "36"
+                            - generic [ref=f1e427]: "26"
+                            - generic [ref=f1e428]: "21"
+                            - generic [ref=f1e429]: "14"
+                            - generic [ref=f1e430]: "10"
+                            - generic [ref=f1e431]: "8"
+                            - generic [ref=f1e432]: "10"
+                    - generic [ref=f1e436]:
+                      - generic [ref=f1e438]:
+                        - generic [ref=f1e440]: Cases by Surgeon
+                        - generic [ref=f1e444]:
+                          - listitem [ref=f1e447]:
+                            - generic "Top" [ref=f1e448]:
+                              - generic [ref=f1e449]: "Top:"
+                              - textbox "Top" [ref=f1e450]: "10"
+                              - img "empty icon" [ref=f1e451]
+                          - button "ellipsis icon" [ref=f1e452] [cursor=pointer]:
+                            - img "ellipsis icon" [ref=f1e454]
+                      - generic [ref=f1e457]:
+                        - generic [ref=f1e458]:
+                          - grid [ref=f1e459]:
+                            - generic [ref=f1e461]:
+                              - button "Surgeon" [disabled] [ref=f1e464] [cursor=pointer]:
+                                - columnheader "Surgeon" [disabled] [ref=f1e465]:
+                                  - generic [ref=f1e468]: Surgeon
+                              - button "Cases CY" [disabled] [ref=f1e472] [cursor=pointer]:
+                                - columnheader "Cases CY" [disabled] [ref=f1e473]:
+                                  - generic [ref=f1e476]: Cases CY
+                              - button "Cases PY" [disabled] [ref=f1e480] [cursor=pointer]:
+                                - columnheader "Cases PY" [disabled] [ref=f1e481]:
+                                  - generic [ref=f1e484]: Cases PY
+                              - button "YoY" [disabled] [ref=f1e488] [cursor=pointer]:
+                                - columnheader "YoY" [disabled] [ref=f1e489]:
+                                  - generic [ref=f1e492]: YoY
+                              - button "YoY %" [disabled] [ref=f1e496] [cursor=pointer]:
+                                - columnheader "YoY %" [disabled] [ref=f1e497]:
+                                  - generic [ref=f1e500]: YoY %
+                            - generic [ref=f1e502]:
+                              - row "Buckley, Taylor 66 67 -1 -1.5%" [ref=f1e503]:
+                                - gridcell "Buckley, Taylor" [ref=f1e505] [cursor=pointer]:
+                                  - generic [ref=f1e506]: Buckley, Taylor
+                                - generic [ref=f1e510]: "66"
+                                - generic [ref=f1e516]: "67"
+                                - gridcell "-1" [ref=f1e520] [cursor=pointer]:
+                                  - generic [ref=f1e521]: "-1"
+                                - gridcell "-1.5%" [ref=f1e523] [cursor=pointer]:
+                                  - generic [ref=f1e524]: "-1.5%"
+                              - row "Stayner, Larry 62 50 12 24.0%" [ref=f1e525]:
+                                - gridcell "Stayner, Larry" [ref=f1e527] [cursor=pointer]:
+                                  - generic [ref=f1e528]: Stayner, Larry
+                                - generic [ref=f1e532]: "62"
+                                - generic [ref=f1e538]: "50"
+                                - gridcell "12" [ref=f1e542] [cursor=pointer]:
+                                  - generic [ref=f1e543]: "12"
+                                - gridcell "24.0%" [ref=f1e545] [cursor=pointer]:
+                                  - generic [ref=f1e546]: 24.0%
+                              - row "Fowlkes, Jonathan 43 35 8 22.9%" [ref=f1e547]:
+                                - gridcell "Fowlkes, Jonathan" [ref=f1e549] [cursor=pointer]:
+                                  - generic [ref=f1e550]: Fowlkes, Jonathan
+                                - generic [ref=f1e554]: "43"
+                                - generic [ref=f1e560]: "35"
+                                - gridcell "8" [ref=f1e564] [cursor=pointer]:
+                                  - generic [ref=f1e565]: "8"
+                                - gridcell "22.9%" [ref=f1e567] [cursor=pointer]:
+                                  - generic [ref=f1e568]: 22.9%
+                              - row "Jacobson, Justin 43 36 7 19.4%" [ref=f1e569]:
+                                - gridcell "Jacobson, Justin" [ref=f1e571] [cursor=pointer]:
+                                  - generic [ref=f1e572]: Jacobson, Justin
+                                - generic [ref=f1e576]: "43"
+                                - generic [ref=f1e582]: "36"
+                                - gridcell "7" [ref=f1e586] [cursor=pointer]:
+                                  - generic [ref=f1e587]: "7"
+                                - gridcell "19.4%" [ref=f1e589] [cursor=pointer]:
+                                  - generic [ref=f1e590]: 19.4%
+                              - row "Telleria, Jessica 31 24 7 29.2%" [ref=f1e591]:
+                                - gridcell "Telleria, Jessica" [ref=f1e593] [cursor=pointer]:
+                                  - generic [ref=f1e594]: Telleria, Jessica
+                                - generic [ref=f1e598]: "31"
+                                - generic [ref=f1e604]: "24"
+                                - gridcell "7" [ref=f1e608] [cursor=pointer]:
+                                  - generic [ref=f1e609]: "7"
+                                - gridcell "29.2%" [ref=f1e611] [cursor=pointer]:
+                                  - generic [ref=f1e612]: 29.2%
+                              - row "Watley, Duncan 28 33 -5 -15.2%" [ref=f1e613]:
+                                - gridcell "Watley, Duncan" [ref=f1e615] [cursor=pointer]:
+                                  - generic [ref=f1e616]: Watley, Duncan
+                                - generic [ref=f1e620]: "28"
+                                - generic [ref=f1e626]: "33"
+                                - gridcell "-5" [ref=f1e630] [cursor=pointer]:
+                                  - generic [ref=f1e631]: "-5"
+                                - gridcell "-15.2%" [ref=f1e633] [cursor=pointer]:
+                                  - generic [ref=f1e634]: "-15.2%"
+                              - row "Gardner, Phillip 27 18 9 50.0%" [ref=f1e635]:
+                                - gridcell "Gardner, Phillip" [ref=f1e637] [cursor=pointer]:
+                                  - generic [ref=f1e638]: Gardner, Phillip
+                                - generic [ref=f1e642]: "27"
+                                - generic [ref=f1e648]: "18"
+                                - gridcell "9" [ref=f1e652] [cursor=pointer]:
+                                  - generic [ref=f1e653]: "9"
+                                - gridcell "50.0%" [ref=f1e655] [cursor=pointer]:
+                                  - generic [ref=f1e656]: 50.0%
+                              - row "Von Doersten, Peter 10 8 2 25.0%" [ref=f1e657]:
+                                - gridcell "Von Doersten, Peter" [ref=f1e659] [cursor=pointer]:
+                                  - generic [ref=f1e660]: Von Doersten, Peter
+                                - generic [ref=f1e664]: "10"
+                                - generic [ref=f1e670]: "8"
+                                - gridcell "2" [ref=f1e674] [cursor=pointer]:
+                                  - generic [ref=f1e675]: "2"
+                                - gridcell "25.0%" [ref=f1e677] [cursor=pointer]:
+                                  - generic [ref=f1e678]: 25.0%
+                              - row "Murdock, Todd 9 12 -3 -25.0%" [ref=f1e679]:
+                                - gridcell "Murdock, Todd" [ref=f1e681] [cursor=pointer]:
+                                  - generic [ref=f1e682]: Murdock, Todd
+                                - generic [ref=f1e686]: "9"
+                                - generic [ref=f1e692]: "12"
+                                - gridcell "-3" [ref=f1e696] [cursor=pointer]:
+                                  - generic [ref=f1e697]: "-3"
+                                - gridcell "-25.0%" [ref=f1e699] [cursor=pointer]:
+                                  - generic [ref=f1e700]: "-25.0%"
+                              - row "Westenfelder, Karl 8 8 0 0.0%" [ref=f1e701]:
+                                - gridcell "Westenfelder, Karl" [ref=f1e703] [cursor=pointer]:
+                                  - generic [ref=f1e704]: Westenfelder, Karl
+                                - generic [ref=f1e708]: "8"
+                                - generic [ref=f1e714]: "8"
+                                - gridcell "0" [ref=f1e718] [cursor=pointer]:
+                                  - generic [ref=f1e719]: "0"
+                                - gridcell "0.0%" [ref=f1e721] [cursor=pointer]:
+                                  - generic [ref=f1e722]: 0.0%
+                          - generic [ref=f1e724]: 10 rows
+                        - status [ref=f1e725]
+              - contentinfo [ref=f1e726]
+            - generic [ref=f1e727]: Pay
+    - region "Notifications alt+T"
+  - alert [ref=e7]: Sigmatic
+```
