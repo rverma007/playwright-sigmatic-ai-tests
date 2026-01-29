@@ -47,46 +47,40 @@ pipeline {
         }
     }
 
-    post {
-        always {
+   post {
+    always {
 
-            echo "============================"
-            echo "Publishing Allure Report..."
-            echo "============================"
+        echo "============================"
+        echo "Archiving Reports..."
+        echo "============================"
 
-            allure results: [[path: 'allure-results']]
+        archiveArtifacts artifacts: 'allure-report/**', fingerprint: true, allowEmptyArchive: true
+        archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true, allowEmptyArchive: true
 
-            echo "============================"
-            echo "Archiving Reports..."
-            echo "============================"
+        emailext(
+            subject: "Playwright Report | Build #${BUILD_NUMBER} | ${currentBuild.currentResult}",
+            mimeType: 'text/html',
+            body: """
+                <p>Hello Team,</p>
 
-            archiveArtifacts artifacts: 'allure-report/**', fingerprint: true, allowEmptyArchive: true
-            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true, allowEmptyArchive: true
+                <p>Playwright smoke test execution is completed.</p>
 
-            emailext(
-                subject: "Playwright Report | Build #${BUILD_NUMBER} | ${currentBuild.currentResult}",
-                mimeType: 'text/html',
-                body: """
-                    <p>Hello Team,</p>
+                <ul>
+                  <li><b>Job:</b> ${JOB_NAME}</li>
+                  <li><b>Build:</b> #${BUILD_NUMBER}</li>
+                  <li><b>Status:</b> ${currentBuild.currentResult}</li>
+                </ul>
 
-                    <p>Playwright smoke test execution is completed.</p>
+                <p>
+                  <a href="${BUILD_URL}artifact/allure-report/index.html">
+                  👉 Click here to view Allure Report
+                  </a>
+                </p>
 
-                    <ul>
-                      <li><b>Job:</b> ${JOB_NAME}</li>
-                      <li><b>Build:</b> #${BUILD_NUMBER}</li>
-                      <li><b>Status:</b> ${currentBuild.currentResult}</li>
-                    </ul>
-
-                    <p>
-                      <a href="${BUILD_URL}allure">
-                      👉 Click here to view Allure Report
-                      </a>
-                    </p>
-
-                    <p>Regards,<br/>Jenkins</p>
-                """,
-                to: 'rverma@ex2india.com'
-            )
-        }
+                <p>Regards,<br/>Jenkins</p>
+            """,
+            to: 'rverma@ex2india.com'
+        )
     }
+}
 }
