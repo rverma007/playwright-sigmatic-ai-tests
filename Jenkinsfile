@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PLAYWRIGHT_BROWSERS_PATH = "0"
+    }
+
     stages {
 
         stage("Checkout Code") {
@@ -13,7 +17,7 @@ pipeline {
             steps {
                 bat '''
                     npm install
-                    npx playwright install --with-deps
+                    npx playwright install
                 '''
             }
         }
@@ -37,8 +41,8 @@ pipeline {
 
     post {
         always {
-            echo "Archiving Allure Report..."
             archiveArtifacts artifacts: 'allure-report/**', fingerprint: true
+            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
         }
     }
 }
