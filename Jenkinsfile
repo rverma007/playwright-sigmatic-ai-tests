@@ -1,86 +1,45 @@
-pipeline {
-    agent any
+post {
+    always {
 
-    triggers {
-        cron('H 22 * * 1-5')
-    }
+        echo "============================"
+        echo "Publishing Allure Report..."
+        echo "============================"
 
-    stages {
+        // ✅ Publish Allure in Jenkins UI
+        allure results: [[path: 'allure-results']]
 
-        stage("Install Dependencies + Browsers") {
-            steps {
-                bat '''
-                    echo ============================
-                    echo Installing Node Packages...
-                    echo ============================
-                    npm ci
+        echo "============================"
+        echo "Archiving Reports..."
+        echo "============================"
 
-                    echo ============================
-                    echo Installing Playwright Browsers...
-                    echo ============================
-                    npx playwright install chromium
-                    npx playwright install-deps chromium
-                '''
-            }
-        }
+        archiveArtifacts artifacts: 'allure-report/**', fingerprint: true, allowEmptyArchive: true
+        archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true, allowEmptyArchive: true
 
-        stage("Run Smoke Tests") {
-            steps {
-                bat '''
-                    echo ============================
-                    echo Running Smoke Tests...
-                    echo ============================
-                    npx playwright test -g @smoke --reporter=line
-                '''
-            }
-        }
+        // ✅ Email with correct Pipeline variable
+        emailext(
+    subject: "Playwright Report | Build #${BUILD_NUMBER} | ${currentBuild.currentResult}",
+    mimeType: 'text/html',
+    body: """
+        <p>Hello Team,</p>
 
-        stage("Generate Allure Report") {
-            steps {
-                bat '''
-                    echo ============================
-                    echo Generating Allure Report...
-                    echo ============================
-                    npx allure generate allure-results --clean -o allure-report
-                '''
-            }
-        }
-    }
+        <p>Playwright smoke test execution is completed.</p>
 
-    post {
-        always {
+        <ul>
+          <li><b>Job:</b> ${JOB_NAME}</li>
+          <li><b>Build:</b> #${BUILD_NUMBER}</li>
+          <li><b>Status:</b> ${currentBuild.currentResult}</li>
+        </ul>
 
-            echo "============================"
-            echo "Archiving Reports..."
-            echo "============================"
+        <p>
+          <a href="${BUILD_URL}artifact/allure-report/index.html">
+          👉 Click here to view Allure Report
+          </a>
+        </p>
 
-            archiveArtifacts artifacts: 'allure-report/**', fingerprint: true, allowEmptyArchive: true
-            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true, allowEmptyArchive: true
+        <p>Regards,<br/>Jenkins</p>
+    """,
+    to: 'rverma@ex2india.com'
 
-            emailext(
-                subject: "Playwright Report | Build #${BUILD_NUMBER} | ${BUILD_STATUS}",
-                mimeType: 'text/html',
-                body: """
-                    <p>Hello Team,</p>
-
-                    <p>Playwright smoke test execution is completed.</p>
-
-                    <ul>
-                      <li><b>Job:</b> ${JOB_NAME}</li>
-                      <li><b>Build:</b> #${BUILD_NUMBER}</li>
-                      <li><b>Status:</b> ${BUILD_STATUS}</li>
-                    </ul>
-
-                    <p>
-                      <a href="${BUILD_URL}artifact/allure-report/index.html">
-                      👉 Click here to view Allure Report
-                      </a>
-                    </p>
-
-                    <p>Regards,<br/>Jenkins</p>
-                """,
-                to: 'rverma@ex2india.com'
-            )
-        }
+        )
     }
 }
