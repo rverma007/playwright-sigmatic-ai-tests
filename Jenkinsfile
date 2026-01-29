@@ -1,7 +1,6 @@
 pipeline {
     agent any
 
-    // ✅ Scheduled execution (Weekdays 10 PM)
     triggers {
         cron('H 22 * * 1-5')
     }
@@ -52,20 +51,12 @@ pipeline {
         always {
 
             echo "============================"
-            echo "Publishing Allure Report..."
-            echo "============================"
-
-            // ✅ This makes "Allure Report" appear in Jenkins UI
-            allure results: [[path: 'allure-results']]
-
-            echo "============================"
             echo "Archiving Reports..."
             echo "============================"
 
             archiveArtifacts artifacts: 'allure-report/**', fingerprint: true, allowEmptyArchive: true
             archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true, allowEmptyArchive: true
 
-            // ✅ Email notification with Allure link
             emailext(
                 subject: "Playwright Report | Build #${BUILD_NUMBER} | ${BUILD_STATUS}",
                 mimeType: 'text/html',
@@ -81,12 +72,14 @@ pipeline {
                     </ul>
 
                     <p>
-                      <a href="${BUILD_URL}allure">👉 Click here to view Allure Report</a>
+                      <a href="${BUILD_URL}artifact/allure-report/index.html">
+                      👉 Click here to view Allure Report
+                      </a>
                     </p>
 
                     <p>Regards,<br/>Jenkins</p>
                 """,
-                to: 'rverma@ex2india.com.com'
+                to: 'rverma@ex2india.com'
             )
         }
     }
