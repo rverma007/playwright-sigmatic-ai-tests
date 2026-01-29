@@ -17,7 +17,7 @@ pipeline {
             steps {
                 bat '''
                     npm install
-                    npx playwright install
+                    npx playwright install chromium
                 '''
             }
         }
