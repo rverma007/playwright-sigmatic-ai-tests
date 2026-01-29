@@ -13,17 +13,11 @@ pipeline {
             }
         }
 
-        stage("Checkout Code") {
-            steps {
-                checkout scm
-            }
-        }
-
         stage("Install Dependencies + Browsers") {
             steps {
                 bat '''
                     npm install
-                    npx playwright install --force chromium
+                    npx playwright install --with-deps chromium
                 '''
             }
         }
