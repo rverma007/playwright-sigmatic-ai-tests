@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage("Clean Workspace") {
-            steps {
-                cleanWs()
-            }
-        }
-
         stage("Install Dependencies + Browsers") {
             steps {
                 bat '''
@@ -29,10 +23,19 @@ pipeline {
                 '''
             }
         }
+
+        stage("Generate Allure Report") {
+            steps {
+                bat '''
+                    npx allure generate allure-results --clean -o allure-report
+                '''
+            }
+        }
     }
 
     post {
         always {
+            archiveArtifacts artifacts: 'allure-report/**', fingerprint: true
             archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
         }
     }
