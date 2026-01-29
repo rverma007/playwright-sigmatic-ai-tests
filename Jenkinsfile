@@ -13,6 +13,12 @@ pipeline {
             }
         }
 
+        stage("Checkout Code") {
+            steps {
+                checkout scm
+            }
+        }
+
         stage("Install Dependencies + Browsers") {
             steps {
                 bat '''
@@ -28,6 +34,12 @@ pipeline {
                     npx playwright test -g @smoke
                 '''
             }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
         }
     }
 }
