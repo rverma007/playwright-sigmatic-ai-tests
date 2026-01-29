@@ -70,6 +70,7 @@ pipeline {
         PLAYWRIGHT_BROWSERS_PATH = "0"
     }
 
+
     stages {
 
         stage("Install Dependencies + Browsers") {
