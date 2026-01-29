@@ -10,8 +10,20 @@ pipeline {
         stage("Install Dependencies + Browsers") {
             steps {
                 bat '''
-                    npm install
-                    npx playwright install --with-deps chromium
+                    echo ============================
+                    echo Installing Node Packages...
+                    echo ============================
+                    npm ci
+
+                    echo ============================
+                    echo Installing Playwright Browsers...
+                    echo ============================
+                    npx playwright install --force chromium
+
+                    echo ============================
+                    echo Checking Browser Install Folder...
+                    echo ============================
+                    dir node_modules\\playwright-core\\.local-browsers
                 '''
             }
         }
@@ -19,7 +31,10 @@ pipeline {
         stage("Run Smoke Tests") {
             steps {
                 bat '''
-                    npx playwright test -g @smoke
+                    echo ============================
+                    echo Running Smoke Tests...
+                    echo ============================
+                    npx playwright test -g @smoke --reporter=line
                 '''
             }
         }
@@ -27,6 +42,9 @@ pipeline {
         stage("Generate Allure Report") {
             steps {
                 bat '''
+                    echo ============================
+                    echo Generating Allure Report...
+                    echo ============================
                     npx allure generate allure-results --clean -o allure-report
                 '''
             }
@@ -35,6 +53,10 @@ pipeline {
 
     post {
         always {
+            echo ============================
+            echo Archiving Reports...
+            echo ============================
+
             archiveArtifacts artifacts: 'allure-report/**', fingerprint: true
             archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
         }
