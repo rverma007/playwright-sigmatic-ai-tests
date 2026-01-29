@@ -66,10 +66,10 @@
 pipeline {
     agent any
 
-    environment {
-        PLAYWRIGHT_BROWSERS_PATH = "0"
-    }
-
+    // REMOVE this entire environment section OR change it
+    // environment {
+    //     PLAYWRIGHT_BROWSERS_PATH = "0"
+    // }
 
     stages {
 
@@ -84,13 +84,8 @@ pipeline {
                     echo ============================
                     echo Installing Playwright Browsers...
                     echo ============================
-                    npx playwright install --force chromium
+                    npx playwright install chromium
                     npx playwright install-deps chromium
-
-                    echo ============================
-                    echo Checking Browser Install Folder...
-                    echo ============================
-                    dir node_modules\\playwright-core\\.local-browsers
                 '''
             }
         }
