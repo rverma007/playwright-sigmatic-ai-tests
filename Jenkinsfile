@@ -53,9 +53,9 @@ pipeline {
 
     post {
         always {
-            echo ============================
-            echo Archiving Reports...
-            echo ============================
+            echo "============================"
+            echo "Archiving Reports..."
+            echo "============================"
 
             archiveArtifacts artifacts: 'allure-report/**', fingerprint: true
             archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
