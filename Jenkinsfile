@@ -9,11 +9,11 @@ pipeline {
             }
         }
 
-        stage("Install Dependencies") {
+        stage("Install Dependencies + Browsers") {
             steps {
                 bat '''
                     npm install
-                    npx playwright install chromium
+                    npx playwright install --with-deps
                 '''
             }
         }
@@ -37,17 +37,8 @@ pipeline {
 
     post {
         always {
-            echo "Publishing Allure Report..."
-
-            allure([
-                results: [[path: 'allure-results']]
-            ])
-
+            echo "Archiving Allure Report..."
             archiveArtifacts artifacts: 'allure-report/**', fingerprint: true
-        }
-
-        failure {
-            echo "Pipeline Failed!"
         }
     }
 }
