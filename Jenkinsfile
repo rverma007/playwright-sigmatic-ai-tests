@@ -1,75 +1,10 @@
-// pipeline {
-//     agent any
-
-//     environment {
-//         PLAYWRIGHT_BROWSERS_PATH = "0"
-//     }
-
-//     stages {
-
-//         stage("Install Dependencies + Browsers") {
-//             steps {
-//                 bat '''
-//                     echo ============================
-//                     echo Installing Node Packages...
-//                     echo ============================
-//                     npm ci
-
-//                     echo ============================
-//                     echo Installing Playwright Browsers...
-//                     echo ============================
-//                     npx playwright install --force chromium
-
-//                     echo ============================
-//                     echo Checking Browser Install Folder...
-//                     echo ============================
-//                     dir node_modules\\playwright-core\\.local-browsers
-//                 '''
-//             }
-//         }
-
-//         stage("Run Smoke Tests") {
-//             steps {
-//                 bat '''
-//                     echo ============================
-//                     echo Running Smoke Tests...
-//                     echo ============================
-//                     npx playwright test -g @smoke --reporter=line
-//                 '''
-//             }
-//         }
-
-//         stage("Generate Allure Report") {
-//             steps {
-//                 bat '''
-//                     echo ============================
-//                     echo Generating Allure Report...
-//                     echo ============================
-//                     npx allure generate allure-results --clean -o allure-report
-//                 '''
-//             }
-//         }
-//     }
-
-//     post {
-//         always {
-//             echo "============================"
-//             echo "Archiving Reports..."
-//             echo "============================"
-
-//             archiveArtifacts artifacts: 'allure-report/**', fingerprint: true
-//             archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true
-//         }
-//     }
-// }
-
 pipeline {
     agent any
 
-    // REMOVE this entire environment section OR change it
-    // environment {
-    //     PLAYWRIGHT_BROWSERS_PATH = "0"
-    // }
+    // ✅ Scheduled execution (Weekdays 10 PM)
+    triggers {
+        cron('H 22 * * 1-5')
+    }
 
     stages {
 
@@ -115,12 +50,44 @@ pipeline {
 
     post {
         always {
+
+            echo "============================"
+            echo "Publishing Allure Report..."
+            echo "============================"
+
+            // ✅ This makes "Allure Report" appear in Jenkins UI
+            allure results: [[path: 'allure-results']]
+
             echo "============================"
             echo "Archiving Reports..."
             echo "============================"
 
             archiveArtifacts artifacts: 'allure-report/**', fingerprint: true, allowEmptyArchive: true
             archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true, allowEmptyArchive: true
+
+            // ✅ Email notification with Allure link
+            emailext(
+                subject: "Playwright Report | Build #${BUILD_NUMBER} | ${BUILD_STATUS}",
+                mimeType: 'text/html',
+                body: """
+                    <p>Hello Team,</p>
+
+                    <p>Playwright smoke test execution is completed.</p>
+
+                    <ul>
+                      <li><b>Job:</b> ${JOB_NAME}</li>
+                      <li><b>Build:</b> #${BUILD_NUMBER}</li>
+                      <li><b>Status:</b> ${BUILD_STATUS}</li>
+                    </ul>
+
+                    <p>
+                      <a href="${BUILD_URL}allure">👉 Click here to view Allure Report</a>
+                    </p>
+
+                    <p>Regards,<br/>Jenkins</p>
+                """,
+                to: 'rverma@ex2india.com.com'
+            )
         }
     }
 }
