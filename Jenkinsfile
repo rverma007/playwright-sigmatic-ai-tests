@@ -1,45 +1,92 @@
-post {
-    always {
+pipeline {
+    agent any
 
-        echo "============================"
-        echo "Publishing Allure Report..."
-        echo "============================"
+    triggers {
+        cron('H 22 * * 1-5')
+    }
 
-        // ✅ Publish Allure in Jenkins UI
-        allure results: [[path: 'allure-results']]
+    stages {
 
-        echo "============================"
-        echo "Archiving Reports..."
-        echo "============================"
+        stage("Install Dependencies + Browsers") {
+            steps {
+                bat '''
+                    echo ============================
+                    echo Installing Node Packages...
+                    echo ============================
+                    npm ci
 
-        archiveArtifacts artifacts: 'allure-report/**', fingerprint: true, allowEmptyArchive: true
-        archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true, allowEmptyArchive: true
+                    echo ============================
+                    echo Installing Playwright Browsers...
+                    echo ============================
+                    npx playwright install chromium
+                    npx playwright install-deps chromium
+                '''
+            }
+        }
 
-        // ✅ Email with correct Pipeline variable
-        emailext(
-    subject: "Playwright Report | Build #${BUILD_NUMBER} | ${currentBuild.currentResult}",
-    mimeType: 'text/html',
-    body: """
-        <p>Hello Team,</p>
+        stage("Run Smoke Tests") {
+            steps {
+                bat '''
+                    echo ============================
+                    echo Running Smoke Tests...
+                    echo ============================
+                    npx playwright test -g @smoke --reporter=line
+                '''
+            }
+        }
 
-        <p>Playwright smoke test execution is completed.</p>
+        stage("Generate Allure Report") {
+            steps {
+                bat '''
+                    echo ============================
+                    echo Generating Allure Report...
+                    echo ============================
+                    npx allure generate allure-results --clean -o allure-report
+                '''
+            }
+        }
+    }
 
-        <ul>
-          <li><b>Job:</b> ${JOB_NAME}</li>
-          <li><b>Build:</b> #${BUILD_NUMBER}</li>
-          <li><b>Status:</b> ${currentBuild.currentResult}</li>
-        </ul>
+    post {
+        always {
 
-        <p>
-          <a href="${BUILD_URL}artifact/allure-report/index.html">
-          👉 Click here to view Allure Report
-          </a>
-        </p>
+            echo "============================"
+            echo "Publishing Allure Report..."
+            echo "============================"
 
-        <p>Regards,<br/>Jenkins</p>
-    """,
-    to: 'rverma@ex2india.com'
+            allure results: [[path: 'allure-results']]
 
-        )
+            echo "============================"
+            echo "Archiving Reports..."
+            echo "============================"
+
+            archiveArtifacts artifacts: 'allure-report/**', fingerprint: true, allowEmptyArchive: true
+            archiveArtifacts artifacts: 'playwright-report/**', fingerprint: true, allowEmptyArchive: true
+
+            emailext(
+                subject: "Playwright Report | Build #${BUILD_NUMBER} | ${currentBuild.currentResult}",
+                mimeType: 'text/html',
+                body: """
+                    <p>Hello Team,</p>
+
+                    <p>Playwright smoke test execution is completed.</p>
+
+                    <ul>
+                      <li><b>Job:</b> ${JOB_NAME}</li>
+                      <li><b>Build:</b> #${BUILD_NUMBER}</li>
+                      <li><b>Status:</b> ${currentBuild.currentResult}</li>
+                    </ul>
+
+                    <p>
+                      <a href="${BUILD_URL}allure">
+                      👉 Click here to view Allure Report
+                      </a>
+                    </p>
+
+                    <p>Regards,<br/>Jenkins</p>
+                """,
+                to: 'rverma@ex2india.com'
+            )
+        }
     }
 }
