@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "Node25"
-    }
-
     stages {
 
         stage("Checkout Code") {
@@ -16,7 +12,7 @@ pipeline {
         stage("Install Dependencies") {
             steps {
                 bat '''
-                    npm ci
+                    npm install
                     npx playwright install chromium
                 '''
             }
@@ -41,20 +37,17 @@ pipeline {
 
     post {
         always {
+            echo "Publishing Allure Report..."
 
-            // ✅ Publish Allure Report inside Jenkins
             allure([
                 results: [[path: 'allure-results']]
             ])
 
-            // ✅ Archive report folder
             archiveArtifacts artifacts: 'allure-report/**', fingerprint: true
-
-            echo "Pipeline completed. Allure report published."
         }
 
         failure {
-            echo "Pipeline failed. Check logs."
+            echo "Pipeline Failed!"
         }
     }
 }
