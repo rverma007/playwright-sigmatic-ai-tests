@@ -23,7 +23,7 @@ pipeline {
             steps {
                 bat '''
                     npm install
-                    npx playwright install chromium
+                    npx playwright install --force chromium
                 '''
             }
         }
