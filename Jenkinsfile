@@ -79,7 +79,7 @@ pipeline {
 
                 <p>Regards,<br/>Jenkins</p>
             """,
-            to: 'rverma@ex2india.com'
+            to: 'testing.ruchika@gmail.com'
         )
     }
 }
