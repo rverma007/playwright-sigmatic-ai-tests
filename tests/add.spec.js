@@ -22,7 +22,7 @@ test("@smoke Admin can add user and see it in Users List", async ({ page }) => {
   await page.getByRole("button", { name: /login/i }).click();
 
   // 2️⃣ Go to Users page
-  await page.getByText("Onboard").click();
+  await page.getByText("Users").click();
   await page.getByText("Add Users").click();
   await expect(page.getByText("Users List")).toBeVisible();
 
