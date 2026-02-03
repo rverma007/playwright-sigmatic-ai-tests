@@ -2,6 +2,10 @@
 const { defineConfig } = require("@playwright/test");
 
 module.exports = defineConfig({
+   reporter: [
+    ['line'],
+    ['allure-playwright']
+  ],
   testDir: "./tests",
   timeout: 60 * 1000,
 
